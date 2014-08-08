@@ -142,6 +142,7 @@ PusherChatWidget.prototype._sendChatMessage = function(data) {
       header.html(image).append(name);
     }
   })
+  return false;
 };
 
 /* @private */
@@ -173,11 +174,11 @@ PusherChatWidget._createHTML = function(appendTo) {
         '<li class="waiting">No chat messages available</li>' +
       '</ul>' +
     '</div>' +
-    '<div class="pusher-chat-widget-input">' +
+    '<form class="pusher-chat-widget-input" onsubmit="return PusherChatWidget._sendChatButtonClicked();">' + 
       '<label for="message">Message</label>' +
       '<textarea name="message"></textarea>' +
-      '<button class="pusher-chat-widget-send-btn">Send</button>' +
-    '</div>' +
+      '<input class="pusher-chat-widget-send-btn" type="submit" value="Send" />' +
+    '</form>' +
     '<div class="pusher-chat-widget-footer">' +
       '<a href="http://pusher.com">Pusher</a> powered realtime chat' +
     '</div>' +
